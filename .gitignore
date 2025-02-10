@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.csv
+*.test
+debug.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Build
+dist/
+
+# IDEs y editores
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Sistemas operativos
+Thumbs.db
+ehthumbs.db
+.DS_Store
+Desktop.ini
+
+# Archivos de configuración locales
+.env
+.env.local
+.env.*.local
+
+# Otros
+*.bak
+*.tmp
