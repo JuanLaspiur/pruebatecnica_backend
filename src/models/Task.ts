@@ -12,6 +12,8 @@ export interface ITask extends Document {
   user: Schema.Types.ObjectId; 
 }
 
+
+
 export const categoryEnum = ['trabajo', 'personal', 'estudios', 'hogar', 'salud'] as const;
 
 const taskSchema = new Schema<ITask>({
