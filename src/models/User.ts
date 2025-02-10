@@ -1,6 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-// Interfaz que representa los datos del usuario
 export interface IUser extends Document {
   _id:string;   
   name: string;
