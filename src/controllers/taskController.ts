@@ -7,7 +7,8 @@ const taskService = new TaskService();
 export class TaskController {
 static  async createTask(req: Request, res: Response): Promise<Response> {
     const { title, description, completed, dueDate, status, category }: ITask = req.body;
-    const userId = req.user?.id as string;
+    const userId = (req as any).user?.id;
+
     try {
       const newTask = await taskService.createTask({ title, description, completed, dueDate, status, category } as ITask, userId);
       return res.status(201).json(newTask);
@@ -17,7 +18,7 @@ static  async createTask(req: Request, res: Response): Promise<Response> {
   }
 
  static async getAllTasks(req: Request, res: Response): Promise<Response> {
-    const userId = req.user?.id as string; 
+  const userId = (req as any).user?.id;
 
     try {
       const tasks = await taskService.getAllTasks(userId);
@@ -29,7 +30,7 @@ static  async createTask(req: Request, res: Response): Promise<Response> {
 
 static  async getTaskById(req: Request, res: Response): Promise<Response> {
     const { taskId } = req.params;
-    const userId = req.user?.id as string; 
+    const userId = (req as any).user?.id;
     try {
       const task = await taskService.getTaskById(taskId, userId);
 
@@ -45,7 +46,7 @@ static  async getTaskById(req: Request, res: Response): Promise<Response> {
 
  static async updateTask(req: Request, res: Response): Promise<Response> {
     const { taskId } = req.params;
-    const userId = req.user?.id as string; 
+    const userId = (req as any).user?.id;  
     const updateData = req.body;
 
     try {
@@ -63,7 +64,7 @@ static  async getTaskById(req: Request, res: Response): Promise<Response> {
 
 static  async deleteTask(req: Request, res: Response): Promise<Response> {
     const { taskId } = req.params;
-    const userId = req.user?.id as string; 
+    const userId = (req as any).user?.id;  
 
     try {
       const deletedTask = await taskService.deleteTask(taskId, userId);
