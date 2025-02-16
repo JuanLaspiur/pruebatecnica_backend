@@ -23,7 +23,7 @@ const taskSchema = new Schema<ITask>({
   },
   description: {
     type: String,
-    required: true,              
+    default: '',              
   },
   completed: {
     type: Boolean,
@@ -38,8 +38,8 @@ const taskSchema = new Schema<ITask>({
     default: Date.now,          
   },
   dueDate: {
-    type: Date,                  
-    required: false,              
+    type: Date,
+    default: Date.now, 
   },
   status: {
     type: String,
