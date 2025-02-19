@@ -6,10 +6,15 @@ import jwt from 'jsonwebtoken';
 
 export class UserService {
 
-  async register(name: string, email: string, password: string): Promise<IUser> {
-    const hashedPassword = await hashPassword(password); 
+  async register(name: string, email: string, password: string): Promise<IUser | { message: string, error:number }> {
+    const existingUser = await User.findOne({ email });
 
+    if (existingUser) {
+      return { message: 'El correo electrónico ya está registrado.', error:1 };
+    }
+    const hashedPassword = await hashPassword(password); 
     const newUser = new User({ name, email, password: hashedPassword });
+   
     await newUser.save();
     return newUser;
   }
