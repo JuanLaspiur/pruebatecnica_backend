@@ -23,5 +23,5 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(PORT, (): void => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
-  console.log(`Documentación Swagger disponible en http://localhost:${PORT}/api-docs`);
+  console.log(`Documentación Swagger disponible en https://pruebatecnica-backend.onrender.com/api-docs`);
 });
