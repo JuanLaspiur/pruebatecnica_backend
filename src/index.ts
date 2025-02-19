@@ -2,7 +2,9 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
 import routes from './routes/index';
-import cors from 'cors'; 
+import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from './docs/swagger';
 
 dotenv.config();
 
@@ -17,7 +19,9 @@ connectDB();
 app.get('/', (req: Request, res: Response): void => {
   res.send('¡Hola, mundo!');
 });
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.listen(PORT, (): void => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Documentación Swagger disponible en http://localhost:${PORT}/api-docs`);
 });
