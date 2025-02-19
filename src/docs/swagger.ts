@@ -15,10 +15,11 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./src/routes/*.ts'],
+  apis: ['src/routes/task.routes.ts', 'src/routes/user.routes.ts'],
   
 };
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
 export default swaggerDocs;
+
