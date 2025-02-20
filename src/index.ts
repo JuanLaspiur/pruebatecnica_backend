@@ -10,7 +10,12 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: ['https://pruebatecnica-frontend-aa2w.vercel.app', 'http://localhost:3000'], 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+  allowedHeaders: '*', 
+};
+app.use(cors(corsOptions)); 
 app.use(`/api`, routes);
 
 const PORT: number = parseInt(process.env.PORT || '3000', 10);
