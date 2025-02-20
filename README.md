@@ -37,7 +37,8 @@ Create a `.env` file in the root directory and define the following variables:
    ```
 ## Documentation
 -Swagger
-```http://localhost:4000/api-docs  
+```sh
+http://localhost:4000/api-docs  
 ```
 
 ## Available Scripts
