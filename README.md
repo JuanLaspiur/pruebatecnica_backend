@@ -35,6 +35,10 @@ Create a `.env` file in the root directory and define the following variables:
    DB_URI= <uri-mongodb>
    JWT_SECRET=<secret-token>
    ```
+## Documentation
+-Swagger
+```http://localhost:4000/api-docs  
+```
 
 ## Available Scripts
 
